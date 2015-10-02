@@ -1,0 +1,27 @@
+Teacher:
+	#id
+	- name
+	- address
+	- phone
+	- profession
+	___________________________________________________________
+	=> A teacher teaches many courses
+---------------------------------------------------------------
+Student:
+	#id
+	- name
+	- address
+	- phone
+	- career
+	___________________________________________________________
+	=> A student takes many courses
+---------------------------------------------------------------
+Course:
+	#id
+	- title
+	- description
+	- value
+	____________________________________________________________
+	=> A course is teached by one teacher (one to many - 1:N)
+	=> A course is taken by many students (many to many - N:N)
+----------------------------------------------------------------
