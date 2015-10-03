@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Eloquent\Model;
 
-class Teacher extends Model
+class Student extends Model
 {
 	protected $fillable = ['id', 'name', 'address', 'phone', 'career'];
 

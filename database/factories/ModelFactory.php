@@ -11,11 +11,29 @@
 |
 */
 
-$factory->define(App\User::class, function ($faker) {
+$factory->define(App\Teacher::class, function ($faker) {
     return [
         'name' => $faker->name,
-        'email' => $faker->email,
-        'password' => str_random(10),
-        'remember_token' => str_random(10),
+        'address' => $faker->address,
+        'phone' => $faker->phoneNumber,
+        'profession' => $faker->randomElement($array = array ('engineering','math','physics'))
+    ];
+});
+
+$factory->define(App\Student::class, function ($faker) {
+    return [
+        'name' => $faker->name,
+        'address' => $faker->address,
+        'phone' => $faker->phoneNumber,
+        'career' => $faker->randomElement($array = array ('engineering','math','physics'))
+    ];
+});
+
+$factory->define(App\Course::class, function ($faker) {
+    return [
+        'title' => $faker->sentence(4),
+        'description' => $faker->paragraph(4),
+		'value' => $faker->numberBetween(1,4),
+        'teacher_id' => mt_rand(1, 50)
     ];
 });
