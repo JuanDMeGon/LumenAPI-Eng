@@ -19,9 +19,9 @@ $app = new Laravel\Lumen\Application(
 	realpath(__DIR__.'/../')
 );
 
-class_alias('Illuminate\Support\Facades\Config', 'Config');
+//class_alias('Illuminate\Support\Facades\Config', 'Config');
 
-$app->withFacades();
+//$app->withFacades();
 
 $app->withEloquent();
 
