@@ -5,6 +5,12 @@ use App\Student;
 
 class CourseStudentController extends Controller
 {
+
+	public function __construct()
+	{
+		$this->middleware('oauth', ['except' => ['index']]);
+	}
+
 	public function index($course_id)
 	{
 		$course = Course::find($course_id);

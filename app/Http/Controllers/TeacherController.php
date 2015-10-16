@@ -6,6 +6,11 @@ use Illuminate\Http\Request;
 
 class TeacherController extends Controller
 {
+	public function __construct()
+	{
+		$this->middleware('oauth', ['except' => ['index', 'show']]);
+	}
+
 	public function index()
 	{
 		$teachers = Teacher::all();
