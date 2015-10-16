@@ -39,14 +39,35 @@ class CourseStudentController extends Controller
 				return $this->createSuccessResponse("The student with id {$student->id} was added to the course with id {$course->id}", 201);
 			}
 
-			return $this->createErrorResponse("The student with id {$student_id} does nos exists", 404);
+			return $this->createErrorResponse("The student with id {$student_id} does not exists", 404);
 		}
 
 		return $this->createErrorResponse("The course with id {$course_id}, does not exists", 404);
 	}
 
-	public function destroy()
+	public function destroy($course_id, $student_id)
 	{
-		return __METHOD__;		
+		$course = Course::find($course_id);
+
+		if($course)
+		{
+			$student = Student::find($student_id);
+
+			if($student)
+			{
+				if(!$course->students()->find($student->id))
+				{
+					return $this->createErrorResponse("The student with id {$student->id} does not exists in the course with id {$course->id}", 404);
+				}
+
+				$course->students()->detach($student->id);
+
+				return $this->createSuccessResponse("The student with id {$student->id} was removed from the course with id {$course->id}", 200);
+			}
+
+			return $this->createErrorResponse("The student with id {$student_id} does not exists", 404);
+		}
+
+		return $this->createErrorResponse("The course with id {$course_id}, does not exists", 404);	
 	}
 }

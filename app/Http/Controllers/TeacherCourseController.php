@@ -71,9 +71,31 @@ class TeacherCourseController extends Controller
 		return $this->createErrorResponse("Does not exists a teacher with the id {$teacher_id}", 404);
 	}
 
-	public function destroy()
+	public function destroy($teacher_id, $course_id)
 	{
-		return __METHOD__;		
+		$teacher = Teacher::find($teacher_id);
+
+		if($teacher)
+		{
+			$course = Course::find($course_id);
+
+			if($course)
+			{
+				if($teacher->courses()->find($course_id))
+				{
+					$course->students()->detach();
+
+					$course->delete();
+
+					return $this->createSuccessResponse("The course with id {$course_id} was removed", 200);
+				}
+
+				return $this->createErrorResponse("The course with id {$course_id} is not associated with the teacher with id {$teacher_id}", 409);
+			}
+
+			return $this->createErrorResponse("Does not exists a course with the id {$course_id}", 404);
+		}
+		return $this->createErrorResponse("Does not exists a teacher with the id {$teacher_id}", 404);	
 	}
 
 	function validateRequest($request)
