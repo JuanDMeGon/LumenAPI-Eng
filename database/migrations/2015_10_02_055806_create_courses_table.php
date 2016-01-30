@@ -19,7 +19,7 @@ class CreateCoursesTable extends Migration
             $table->integer('value')->unsigned();
             $table->integer('teacher_id')->unsigned();
             $table->foreign('teacher_id')->references('id')->on('teachers');
-            $table->timestamps();
+            $table->nullableTimestamps();
         });
     }
 

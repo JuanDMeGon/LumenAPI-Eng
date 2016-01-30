@@ -18,7 +18,7 @@ class CreateTeachersTable extends Migration
             $table->string('address');
             $table->string('phone');
             $table->string('profession');
-            $table->timestamps();
+            $table->nullableTimestamps();
         });
     }
 
