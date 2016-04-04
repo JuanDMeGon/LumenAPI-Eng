@@ -1,6 +1,6 @@
 ## RESTful API with Lumen (PHP / Laravel Micro Framework)
 
-This repository contains the source code of the "Lumen 5.1 course".
+This repository contains the source code of the "RESTful API with Lumen".
 
 This API is a case of study about: Students, Teachers and Courses:
 
@@ -11,4 +11,6 @@ This API is a case of study about: Students, Teachers and Courses:
 
 ## Official site for the course:
 
-[Lumen 5.1 and Homestead of Laravel: Create a RESTful API](https://www.udemy.com/576646/).
+[Lumen and Homestead of Laravel: Create a RESTful API](https://www.udemy.com/lumen-restful-api-and-homestead-for-lumen-by-laravel-and-php/?couponCode=social).
+
+Curently teh course and the project works with Lumen 5.2.
