@@ -45,9 +45,9 @@ class Handler extends ExceptionHandler {
      */
     public function render($request, Exception $e)
     {
-        if(env('APP_DEBUG'))
+        if($e instanceof NotFoundResourceException)
         {
-            return parent::render($request, $e);
+            return response()->json(['message' => 'The specified resource does not exists', 'code' => 404], 404);
         }
 
         if($e instanceof NotFoundHttpException)
@@ -55,7 +55,7 @@ class Handler extends ExceptionHandler {
             return response()->json(['message' => 'Bad Request', 'code' => 400], 400);
         }
 
-        return response()->json(['message' => 'Unexpected Error', 'code' => 500], 500);
+        return parent::render($request, $e);
     }
 
 }
