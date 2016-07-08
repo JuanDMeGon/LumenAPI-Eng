@@ -36,7 +36,7 @@ class TeacherController extends Controller
 
 		$teacher = Teacher::create($request->all());
 
-		return $this->createSuccessResponse("The teacher with id {$teacher->id} has been created", 201);		
+		return $this->createSuccessResponse("The teacher with id {$teacher->id} has been created", 201);
 	}
 
 	public function update(Request $request, $student_id)
@@ -86,7 +86,7 @@ class TeacherController extends Controller
 		$rules =
 		[
 			'name' => 'required',
-			'phone' => 'required|numeric',
+			'phone' => 'required',
 			'address' => 'required',
 			'profession' => 'required|in:engineering,math,physics'
 		];

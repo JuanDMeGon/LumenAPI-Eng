@@ -80,7 +80,7 @@ class StudentController extends Controller
 		$rules =
 		[
 			'name' => 'required',
-			'phone' => 'required|numeric',
+			'phone' => 'required',
 			'address' => 'required',
 			'career' => 'required|in:engineering,math,physics'
 		];
